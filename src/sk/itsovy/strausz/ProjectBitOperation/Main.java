@@ -12,12 +12,11 @@ public class Main {
 
         Student[] list = new Student[5];
 
-        list[0] = new Student("Viliam", (byte) 23);
-        ;
-        list[1] = new Student("Daniela", (byte) 10);
-        list[2] = new Student("Marian", (byte) 21);
-        list[3] = new Student("Anastazia", (byte) 7);
-        list[4] = new Student("Roman", (byte) 31);
+        list[0] = new Student("Viliam", (byte) 23,"KE","04001");
+        list[1] = new Student("Daniela", (byte) 10, "PO", "08004");
+        list[2] = new Student("Marian", (byte) 21, "MI", "07101");
+        list[3] = new Student("Anastazia", (byte) 7, "PP", "05801");
+        list[4] = new Student("Roman", (byte) 31, null, "");
 
         //vypis studentov ktori boli v pondelok v skole
         System.out.println("List of students , Monday:");
