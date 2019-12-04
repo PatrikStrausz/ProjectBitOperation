@@ -70,5 +70,79 @@ public class Main {
         }
 
 
+        //OBJECTS
+        Student student1 = new Student("Miro", (byte) 88, "Presov", "080 01");
+        Student student2 = new Student("Peter", (byte) 48, "Kosice", "040 01");
+        Student student3 = new Student("Ondrej", (byte) 13, "Kosice", "040 01");
+        Student student4 = new Student("Jozef", (byte) 56, "Krivany", "082 71");
+        Student student5 = new Student("Richard", (byte) 44, "Vysna Sebastova", "080 06");
+
+        //SETTING HOBBIES
+        student1.setHobby(Hobbies.PROGRAMMING);
+        student1.setHobby(Hobbies.GAMING);
+        student1.setHobby(Hobbies.HOCKEY);
+        student2.setHobby(Hobbies.PROGRAMMING);
+        student3.setHobby(Hobbies.GAMING);
+        student3.setHobby(Hobbies.DANCE);
+        student3.setHobby(Hobbies.GOLF);
+        student4.setHobby(Hobbies.FOTBALL);
+        student5.setHobby(Hobbies.FOTBALL);
+
+        //STUDENT METHOD USES
+        System.out.println(student1.hasHobby(Hobbies.PROGRAMMING));
+        System.out.println(student2.hasHobby(Hobbies.PROGRAMMING));
+        System.out.println(student2.hasHobby(Hobbies.DANCE));
+
+        //MAIN OBJECT
+        Main main1 = new Main();
+
+        //STUDENT LIST DEFINITION
+        Student[] stList = new Student[5];
+        stList[0] = student1;
+        stList[1] = student2;
+        stList[2] = student3;
+        stList[3] = student4;
+        stList[4] = student5;
+
+        //MAIN METHOD USES
+        main1.getHobbies(stList, Hobbies.PROGRAMMING);
+        main1.getAtLeastThreeHobbies(stList);
+    }
+
+    public void getHobbies(Student[] list, Hobbies hobby){
+        for (int i=0 ;i<list.length; i++){
+            boolean has=false;
+            switch (hobby){
+                case DANCE:         if ((list[i].getHobby() & 1) == 1) { has=true; } break;
+                case FOTBALL:      if ((list[i].getHobby() & 2) == 2) { has=true; } break;
+                case HOCKEY:        if ((list[i].getHobby() & 4) == 4) { has=true; } break;
+                case GOLF:          if ((list[i].getHobby() & 8) == 8) { has=true; } break;
+                case PROGRAMMING:   if ((list[i].getHobby() & 16) == 16) { has=true; } break;
+                case RUNNING:        if ((list[i].getHobby() & 32) == 32) { has=true; } break;
+                case GAMING:        if ((list[i].getHobby() & 64) == 64) { has=true; } break;
+                case TRAVELING:    if ((list[i].getHobby() & 128) == 128) { has=true; } break;
+            }
+            if (has) System.out.println(list[i].getName());
+        }
+    }
+    public void getAtLeastThreeHobbies(Student[] list){
+        for (int j=0; j<list.length; j++) {
+            int number = 128, count = 0;
+            for (int i = 8; i > 0; i--) {
+                if ((list[j].getHobby() & number) == number) {
+                    count++;
+                }
+                number = number >> 1;
+            }
+            if (count >= 3){
+                System.out.println(list[j].getName()+" has at least 3 hobbies.");
+            }
+        }
+
+
+
+
+
+
     }
 }

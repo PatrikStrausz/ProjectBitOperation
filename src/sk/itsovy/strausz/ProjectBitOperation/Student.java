@@ -85,10 +85,42 @@ public void setHobby(Hobbies hobby){
           case GOLF:
               this.hobby |= 8;
               break;
+
+          case PROGRAMMING:
+              this.hobby |= 16;
+              break;
+
+          case RUNNING:
+              this.hobby |= 32;
+              break;
+
+          case GAMING:
+              this.hobby |= 64;
+              break;
+
+          case TRAVELING:
+              this.hobby |= 128;
+              break;
       }
 
  }
 
+    public int getHobby() {
+        return hobby;
+    }
 
+    public boolean hasHobby(Hobbies hobby){
 
+      switch(hobby){
+          case DANCE:         if ((this.hobby & 1) == 1){ return true; } else break;
+          case FOTBALL:      if ((this.hobby & 2) == 2){ return true; } else break;
+          case HOCKEY:        if ((this.hobby & 4) == 4){ return true; } else break;
+          case GOLF:          if ((this.hobby & 8) == 8){ return true; } else break;
+          case PROGRAMMING:   if ((this.hobby & 16) == 16){ return true; } else break;
+          case RUNNING:        if ((this.hobby & 32) == 32){ return true; } else break;
+          case GAMING:        if ((this.hobby & 64) == 64){ return true; } else break;
+          case TRAVELING:    if ((this.hobby & 128) == 128){ return true; } else break;
+      }
+     return false;
+    }
 }
